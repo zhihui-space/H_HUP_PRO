@@ -106,6 +106,7 @@
       <el-tabs type="border-card">
         <el-button-group>
           <el-button icon="el-icon-circle-plus" @click="subBtnClick('ADD')">新增</el-button>
+          <el-button icon="el-icon-circle-plus" @click="() => { orderProductInfo.visiable = true }">参照新增</el-button>
         </el-button-group>
         <hr/>
         <el-tab-pane label="订单产品信息">
@@ -211,10 +212,18 @@
         </el-tab-pane>
         </el-tabs>
   </el-dialog>
+
+    <!--新增产品 选择参照-->
+    <OrderProductSelectDialog
+      :visiable="orderProductInfo.visiable"
+      @initOrderProductListInfo="initOrderProductListInfo"
+      @close="() => {orderProductInfo.visiable = false}">
+    </OrderProductSelectDialog>
   </el-dialog>
 </template>
 
 <script>
+import OrderProductSelectDialog from '@/views/orders/orderinfo/productSelect'
 import { mapGetters } from 'vuex'
 import { initReplaceUpdateData, initReplaceAddData, parseTime, randomNum, parseRefKeyInt } from '@/utils/viewCompUtil'
 import { selectTaskoverByPkCustomer, selectProductByPkCustomerAsRef } from '@/api/orders/orders'
@@ -224,6 +233,7 @@ import { selectPurchaseMaterielByPkProduct, savePurchaseMaterielPo } from '@/api
 export default {
   name: 'Customdoccontent',
   props: ["replace", "title", "visiable", 'action', 'updateRow'],
+  components: { OrderProductSelectDialog },
   computed: {
     ...mapGetters([
       'listDataOC', 'columnsOC', 'nameOC', 'useridOC', 'corpaddressOC', 'pkPsndocOC', 'customerTelOC'
@@ -235,6 +245,10 @@ export default {
       innerVisible: false,
       handlePkProduct: null, // 当前查看产品
       uploadUrl: process.env.BASE_API + '/', // 上传地址
+
+      orderProductInfo: { // 参照新建选择产品信息
+        visiable: false,
+      },
       temp: {
         pkProductOrder: undefined,
         contractNo: '',
@@ -462,6 +476,29 @@ export default {
       } else {
         this.$message.warning('产品信息为空!')
       }
+    },
+    // 多选产品进行下单
+    initOrderProductListInfo(productList) {
+      if (productList && productList.length > 0) {
+        for (let index = 0;index < productList.length;index++) {
+          let selProductOne = productList[index]
+          if (selProductOne && selProductOne.pkProduct) {
+            let addNewProduct = {
+              pkProductOrderB: undefined,
+              pkProductOrder: this.temp.pkProductOrder,
+              pkProduct: selProductOne.pkProduct + '',
+              productNum: null,
+              memo: '',
+              creator: null,
+              creationtime: parseTime(new Date()),
+              dr: 0,
+              ts: parseTime(new Date())
+            }
+            this.temp.billProductOrderBPoList.push(addNewProduct)
+          }
+        }
+      }
+      this.orderProductInfo.visiable = false
     },
     restTemp() { // 刷新本界面的数据
       this.temp = {
