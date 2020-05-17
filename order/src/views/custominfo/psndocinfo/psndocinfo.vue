@@ -68,15 +68,35 @@ export default {
         'queryParam': { pkCustomer: this.$store.getters.useridOC }
       },
       top_btn: [
-        {name: '录入',code: 'ADD',action: saveCustomdoc }
+        {
+          name: '录入',
+          code: 'ADD',
+          action: saveCustomdoc,
+          btnSize: 'mini'
+        }
       ],
       act_btn: [
-        { name: '修改', code: 'UPDATE', action: saveCustomdoc },
-        { name: '删除', code: 'DELETE', action: deleteBdCustomdocByPks },
-        { name: '设为默认', code: 'SETDEFPSN', action: saveCustomdoc }
+        { 
+          name: '修改', 
+          code: 'UPDATE', 
+          action: saveCustomdoc 
+        },
+        { 
+          name: '删除', 
+          code: 'DELETE', 
+          action: deleteBdCustomdocByPks 
+        },
+        { 
+          name: '设为默认', 
+          code: 'SETDEFPSN', 
+          action: saveCustomdoc 
+        }
       ],
       replace: [
-        {name: 'customtypeShow',replace: { '1': "采购联系人", '2': "技术联系人", '3': "其他人员"}},
+        {
+          name: 'customtypeShow',
+          replace: { '1': "采购联系人", '2': "技术联系人", '3': "其他人员"}
+        },
       ]
     }
   },
@@ -121,7 +141,6 @@ export default {
   }
 }
 </script>
-
 <style>
 
 </style>

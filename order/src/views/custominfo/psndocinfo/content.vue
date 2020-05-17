@@ -3,7 +3,7 @@
     :visible.sync="contentVisiable" 
     @close="closeDialog"
     width="60%">
-    <el-form :inline="true" ref="dataForm" :model="temp" label-position="left" label-width="150px">
+    <el-form :inline="true" ref="dataForm" :model="temp" label-position="left" label-width="130px">
       <el-form-item label="人员名称" prop="customname">
         <el-input v-model="temp.customname"></el-input>
       </el-form-item>
@@ -161,5 +161,10 @@ export default {
 </script>
 
 <style>
-
+.el-select .el-input__inner{
+  width: 208px;
+}
+.el-dialog__body{
+  padding:10px;
+}
 </style>

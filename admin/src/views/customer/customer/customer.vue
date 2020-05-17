@@ -62,7 +62,7 @@ export default {
         {prop: 'sex', label: '客户性别', width: '120'},
         {prop: 'corpname', label: '企业名称', width: '120'},
         {prop: 'corpaddress', label: '企业地址', width: '120', show: false},
-        {prop: 'tel', label: '联系电话(登录用户名)', width: '120'},
+        {prop: 'tel', label: '联系电话(登录用户名)', width: '200'},
         {prop: 'pkPsndocShow', label: '销售负责人', width: '120'},
         {prop: 'trade', label: '所属行业', width: '120', show: false},
         {prop: 'memo', label: '描述', width: '120', show: false},

@@ -18,14 +18,14 @@
               <el-form-item label="个人/公司名称" prop="corpname">
                 <el-input v-model="bdCustomerPo.corpname" :disabled="viewState.basicInfoState"></el-input>
               </el-form-item>
-              <el-form-item label="公司地址" prop="corpaddress">
-                <el-input v-model="bdCustomerPo.corpaddress" :disabled="viewState.basicInfoState"></el-input>
-              </el-form-item>
               <el-form-item label="登录账号" prop="tel">
                 <el-input v-model="bdCustomerPo.tel" :disabled="true"></el-input>
               </el-form-item>
               <el-form-item label="联系人电话" prop="tel">
                 <el-input v-model="bdCustomerPo.tel" :disabled="true"></el-input>
+              </el-form-item>
+              <el-form-item label="公司地址" prop="corpaddress">
+                <el-input v-model="bdCustomerPo.corpaddress" :disabled="viewState.basicInfoState" style="width:580px;"></el-input>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -55,15 +55,12 @@
             <hr/>
             <el-tag>开票信息</el-tag>
             <hr/>
-            <el-form :inline="true" ref="dataForm" :model="bdInvoicePo" label-position="left" label-width="150px">
+            <el-form :inline="true" ref="dataForm" :model="bdInvoicePo" label-position="left" label-width="120px">
               <el-form-item label="开票公司名称" prop="corpname">
                 <el-input v-model="bdInvoicePo.corpname" :disabled="viewState.invoiceState"></el-input>
               </el-form-item>
               <el-form-item label="税号" prop="dutynum">
                 <el-input v-model="bdInvoicePo.dutynum" :disabled="viewState.invoiceState"></el-input>
-              </el-form-item>
-              <el-form-item label="地址" prop="invoiceAddress">
-                <el-input v-model="bdInvoicePo.invoiceAddress" :disabled="viewState.invoiceState"></el-input>
               </el-form-item>
               <el-form-item label="电话" prop="invoiceTel">
                 <el-input v-model="bdInvoicePo.invoiceTel" :disabled="viewState.invoiceState"></el-input>
@@ -73,6 +70,9 @@
               </el-form-item>
               <el-form-item label="账号" prop="invoiceAccount">
                 <el-input v-model="bdInvoicePo.invoiceAccount" :disabled="viewState.invoiceState"></el-input>
+              </el-form-item>
+              <el-form-item label="地址" prop="invoiceAddress">
+                <el-input v-model="bdInvoicePo.invoiceAddress" :disabled="viewState.invoiceState" style="width:550px;"></el-input>
               </el-form-item>
             </el-form>
             
@@ -87,7 +87,7 @@
                 <el-input v-model="bdInvoicePo.addresseeTel" :disabled="viewState.invoiceState"></el-input>
               </el-form-item>
               <el-form-item label="发票收件人地址" prop="addresseeAdrs">
-                <el-input v-model="bdInvoicePo.addresseeAdrs" :disabled="viewState.invoiceState"></el-input>
+                <el-input v-model="bdInvoicePo.addresseeAdrs" :disabled="viewState.invoiceState" style="width:585px;"></el-input>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -95,18 +95,14 @@
 
         <!--收货信息Dialog-->
         <div v-if="takeOverData.visible">
-          <el-dialog title="详细信息" :visible.sync="takeOverData.visible" width="1000px">
-            <el-form :inline="true" ref="dataForm" :model="takeOverData.temp" label-position="left" label-width="200px">
+          <el-dialog title="详细信息" :visible.sync="takeOverData.visible" width="800px">
+            <el-form :inline="true" ref="dataForm" :model="takeOverData.temp" label-position="left" label-width="120px">
               <el-form-item label="主键" prop="pkTakeover" v-if="false">
                 <el-input v-model="takeOverData.temp.pkTakeover"></el-input>
               </el-form-item>
               <el-form-item label="客户主键" prop="pkCustomer" v-if="false">
                 <el-input v-model="takeOverData.temp.pkCustomer"></el-input>
               </el-form-item>
-              <el-form-item label="地址" prop="address">
-                <el-input v-model="takeOverData.temp.address"></el-input>
-              </el-form-item>
-
               <el-form-item label="收货人" prop="takeoverPsn">
                 <el-select v-model="takeOverData.temp.takeoverPsn" placeholder="请选择" @change="listname">
                   <el-option
@@ -133,6 +129,9 @@
                 </el-select>
               </el-form-item>
 
+              <el-form-item label="地址" prop="address">
+                <el-input v-model="takeOverData.temp.address" style="width:570px;"></el-input>
+              </el-form-item>
             </el-form>
 
             <div slot="footer" class="dialog-footer">

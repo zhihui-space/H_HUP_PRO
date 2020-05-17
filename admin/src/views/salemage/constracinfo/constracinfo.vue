@@ -20,8 +20,8 @@
       <el-table-column prop="contractNo" label="合同编号" width="110"></el-table-column>
       <el-table-column prop="customerCode" label="客户编号" width="110"></el-table-column>
       <el-table-column prop="customerName" label="客户简称" width="100"></el-table-column>
-      <el-table-column prop="orderSignTime" label="签订日期" width="140"></el-table-column>
-      <el-table-column prop="scheduledtime" label="预计交货日期" width="140"></el-table-column>
+      <el-table-column prop="orderSignTime" label="签订日期" width="180"></el-table-column>
+      <el-table-column prop="scheduledtime" label="预计交货日期" width="180"></el-table-column>
       <el-table-column prop="taxinclud" label="是否含税" width="100"></el-table-column>
       <el-table-column prop="orderSummeryPriceTotal" label="合同总价" width="100"></el-table-column>
       <el-table-column prop="billState" label="单据状态" width="100"></el-table-column>

@@ -1,5 +1,11 @@
 <template>
-  <el-table :data="listDataOC" border fit @selection-change="selsChange" @row-click="rowClick">
+  <el-table 
+      :row-style="{height:'2px'}"
+      :cell-style="{padding:'3px 0'}"
+      :data="listDataOC" border fit 
+      @selection-change="selsChange" 
+      @row-click="rowClick"
+  >
     <el-table-column type="selection" width="55"></el-table-column>
     <el-table-column 
       fixed="left"

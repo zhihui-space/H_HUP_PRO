@@ -232,8 +232,8 @@
         </div>
         <!--客户人员信息Dialog-->
         <div v-if="customdocData.visible">
-          <el-dialog title="详细信息" :visible.sync="customdocData.visible" width="1000px">
-            <el-form :inline="true" ref="dataForm" :model="customdocData.temp" label-position="left" label-width="200px">
+          <el-dialog title="详细信息" :visible.sync="customdocData.visible" width="800px">
+            <el-form :inline="true" ref="dataForm" :model="customdocData.temp" label-position="left" label-width="120px">
               <el-form-item label="主键" prop="pkCustomdoc" v-if="false">
                 <el-input v-model="customdocData.temp.pkCustomdoc"></el-input>
               </el-form-item>
@@ -268,7 +268,6 @@
                   </el-option>
                 </el-select>
               </el-form-item>
-
             </el-form>
 
             <div slot="footer" class="dialog-footer">
